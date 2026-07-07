@@ -1,8 +1,5 @@
-// ===============================
-// Aura Essence Store - script.js
-// ===============================
-
-// Product Data
+//Product Data
+//Stores all perfume information
 const perfumes = [
   {
     id: 1,
@@ -63,22 +60,25 @@ const perfumes = [
 ];
 
 // DOM Elements
+//Selects elements from the HTML page
 const productGrid = document.getElementById("productGrid");
 const searchInput = document.getElementById("searchInput");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const cartToggleBtn = document.getElementById("cartToggleBtn");
-const cart = document.getElementById("cart");
+const cart = document.getElementById("cartPanel");
+const cartCloseBtn = document.getElementById("cartCloseBtn");
+const overlay = document.getElementById("overlay");
 const cartItems = document.getElementById("cartItems");
 const cartCount = document.getElementById("cartCount");
-const cartTotal = document.getElementById("cartTotal");
+const cartTotal = document.getElementById("cartSubtotal");
 
+//Variables
+//Used to track the selected category and shopping cart
 let currentCategory = "all";
 let cartData = [];
 
-// ===============================
 // Display Products
-// ===============================
-
+//Displays Products on the webpage
 function displayProducts(products) {
   productGrid.innerHTML = "";
 
@@ -111,10 +111,9 @@ function displayProducts(products) {
   });
 }
 
-// ===============================
-// Search + Filter
-// ===============================
 
+// Search + Filter
+//Filters products based on search tecxt and catergory
 function filterProducts() {
   const search = searchInput.value.toLowerCase();
 
@@ -144,10 +143,11 @@ filterButtons.forEach((button) => {
   });
 });
 
-// ===============================
-// Cart
-// ===============================
 
+// Shopping Cart functions
+// Adds, updates and removes cart items
+
+//Add a product to the shopping cart
 function addToCart(e) {
   const id = Number(e.target.dataset.id);
 
@@ -167,6 +167,7 @@ function addToCart(e) {
   updateCart();
 }
 
+//Updates the shopping cart display
 function updateCart() {
   cartItems.innerHTML = "";
 
@@ -203,6 +204,7 @@ function updateCart() {
   cartTotal.textContent = total.toFixed(2);
 }
 
+//Removes an item from the shopping cart
 function removeItem(id) {
   cartData = cartData.filter((item) => item.id !== id);
 
@@ -211,18 +213,26 @@ function removeItem(id) {
 
 window.removeItem = removeItem;
 
-// ===============================
-// Toggle Cart
-// ===============================
 
+// Toggle Shopping Cart
+//Opens and closes the cart
 cartToggleBtn.addEventListener("click", () => {
-  cart.classList.toggle("hidden");
+  cart.classList.toggle("open");
+  overlay.classList.toggle("open");
 });
 
-// ===============================
-// Checkout
-// ===============================
+cartCloseBtn.addEventListener("click", () => {
+    cart.classList.remove("open");
+    overlay.classList.remove("open");
+})
 
+overlay.addEventListener("click", () => {
+    cart.classList.remove("open");
+    overlay.classList.remove("open");
+})
+
+// Checkout
+//Clears the cart after purchase
 const checkoutBtn = document.getElementById("checkoutBtn");
 
 checkoutBtn.addEventListener("click", () => {
@@ -238,12 +248,12 @@ checkoutBtn.addEventListener("click", () => {
 
   updateCart();
 
-  cart.classList.add("hidden");
+  cart.classList.remove("open");
+  overlay.classList.remove("open");
 });
 
-// ===============================
-// Initialize
-// ===============================
 
+// Initialize
+//Displays products and loads the shopping cart
 displayProducts(perfumes);
 updateCart();

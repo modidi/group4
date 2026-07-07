@@ -1,4 +1,4 @@
-## AURA ESSENSE STORE 
+## AURA ESSENCE STORE 
 ## GROUP MEMBERS
 - Fiona Muthomi
 - Victor Kingara

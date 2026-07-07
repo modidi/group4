@@ -1,7 +1,9 @@
+/* Apply border-box sizing to all elements */
 * {
   box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -9,6 +11,7 @@ body {
   color: #1B1B1B;
 }
 
+/* Nav bar container */
 .nav {
   background: #1B1B1B;
   color: #F7F5F0;
@@ -17,6 +20,7 @@ body {
   z-index: 10;
 }
 
+/* Nav content */
 .nav__inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -26,6 +30,7 @@ body {
   gap: 32px;
 }
 
+/* logo  */
 .nav__logo {
   color: #F7F5F0;
   text-decoration: none;
@@ -34,22 +39,26 @@ body {
   font-size: 1.1rem;
 }
 
+/* Nav links container */
 .nav__links {
   display: flex;
   gap: 20px;
   margin-right: auto;
 }
 
+/* Individual nav links */
 .nav__links a {
   color: rgba(247, 245, 240, 0.7);
   text-decoration: none;
   font-size: 0.9rem;
 }
 
+/* Change color when hovering over links */
 .nav__links a:hover {
   color: #F7F5F0;
 }
 
+/* Shopping cart btn */
 .nav__cart-btn {
   background: #A8763E;
   color: #F7F5F0;
@@ -60,17 +69,20 @@ body {
   font-size: 0.9rem;
 }
 
+/* Main shop container */
 #shop {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 24px;
 }
 
+/* Main heading */
 #shop h1 {
   font-size: 1.8rem;
   margin-bottom: 24px;
 }
 
+/* Search bar and filter buttons container */
 .shop__controls {
   display: flex;
   justify-content: space-between;
@@ -80,6 +92,7 @@ body {
   margin-bottom: 28px;
 }
 
+/* Search Input field */
 #searchInput {
   padding: 10px 14px;
   border: 1px solid #ccc;
@@ -88,12 +101,14 @@ body {
   min-width: 220px;
 }
 
+/* Filter buttons container */
 .shop__filters {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 }
 
+/* Individual filter button */
 .filter-btn {
   background: none;
   border: 1px solid #ccc;
@@ -103,18 +118,83 @@ body {
   font-size: 0.85rem;
 }
 
+/* Active filter button */
 .filter-btn.active {
   background: #1B1B1B;
   color: #F7F5F0;
   border-color: #1B1B1B;
 }
 
+/* Display Products in a responsive grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
 }
 
+/* Individual Product card */
+.product-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/*Card Hover */
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Product Image */
+.product-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Product Information */
+.product-info {
+    padding: 15px;
+}
+
+/* Product name */
+.product-info h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+}
+
+/* Product Category */
+.product-info p {
+    margin: 0;
+    color: #777;
+}
+
+/* Product Price */
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+/* Add to cart button */
+.add-btn {
+    width: 100%;
+    padding: 10px;
+    background: #A8763E;
+    color: #F7F5F0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+/* Change color button when hovered */
+.add-btn:hover {
+    background: #8f6634;
+}
+
+/* Dark background shown when cart is open */
  .overlay {
   position: fixed;
   inset: 0;
@@ -122,6 +202,7 @@ body {
   display: none;
 }
 
+/* Shopping cart sidebar */
 .cart {
   position: fixed;
   top: 0;
@@ -136,14 +217,17 @@ body {
   padding: 24px;
 }
 
+/* Display cart when open */
 .cart.open {
   transform: translateX(0);
 }
 
+/* Display overlay when cart is open */
 .overlay.open {
   display: block;
 }
 
+/* Cart header */
 .cart__header {
   display: flex;
   justify-content: space-between;
@@ -151,6 +235,7 @@ body {
   margin-bottom: 16px;
 }
 
+/* Close cart button */
 .cart__close {
   background: none;
   border: none;
@@ -158,6 +243,7 @@ body {
   cursor: pointer;
 }
 
+/* Cart items list */
 .cart__items {
   list-style: none;
   padding: 0;
@@ -166,11 +252,13 @@ body {
   overflow-y: auto;
 }
 
+/* Cart footer */
 .cart__footer {
   border-top: 1px solid #ccc;
   padding-top: 16px;
 }
 
+/* Cart subtotal section */
 .cart__subtotal {
   display: flex;
   justify-content: space-between;
@@ -178,6 +266,7 @@ body {
   font-size: 1.1rem;
 }
 
+/* checkout button */
 .checkout-btn {
   width: 100%;
   padding: 12px;
@@ -187,4 +276,15 @@ body {
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
+}
+
+/* change checkout button color when hovered */
+.checkout-btn:hover {
+    background: #8f6634;
+}
+
+/* Responsive design */
+/* Adjust the layout for tablets and mobile phones */
+@media (max-width: 768px){
+    
 }
