@@ -47,6 +47,28 @@
   </div>
 </main>
 
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart" id="cartPanel">
+  <div class="cart__header">
+    <h2>Your Cart</h2>
+    <button id="cartCloseBtn" class="cart__close">✕</button>
+  </div>
+
+  <ul class="cart__items" id="cartItems">
+    <!-- Cart items will be inserted here by JavaScript -->
+  </ul>
+
+  <p id="cartEmptyMsg">Your cart is empty.</p>
+
+  <div class="cart__footer">
+    <div class="cart__subtotal">
+      <span>Subtotal</span>
+      <strong id="cartSubtotal">$0.00</strong>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
   <!-- Cart section will go here -->
 
   <script src="script.js"></script>
