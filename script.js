@@ -185,11 +185,13 @@ function updateCart() {
     div.innerHTML = `
             <div>
                 <strong>${item.name}</strong><br>
-                Qty: ${item.quantity}
+                <button onclick="decreaseQuantity(${item.id})">−</button>
+                <span>${item.quantity}</span>
+                <button onclick="increaseQuantity(${item.id})">+</button>
             </div>
 
             <div>
-                $${item.price * item.quantity}
+                <strong>$${item.price * item.quantity}</strong>
                 <br>
                 <button onclick="removeItem(${item.id})">
                     Remove
@@ -204,6 +206,33 @@ function updateCart() {
   cartTotal.textContent = total.toFixed(2);
 }
 
+// Increase the quantity of a product in the cart
+function increaseQuantity(id) {
+  const item = cartData.find(product => product.id === id);
+
+  if (item) {
+    item.quantity++;
+  }
+
+  updateCart();
+}
+
+// Decrease the quantity of a product in the cart
+function decreaseQuantity(id) {
+  const item = cartData.find(product => product.id === id);
+
+  if (!item) return;
+
+  if (item.quantity > 1) {
+    item.quantity--;
+  } else {
+    removeItem(id);
+    return;
+  }
+
+  updateCart();
+}
+
 //Removes an item from the shopping cart
 function removeItem(id) {
   cartData = cartData.filter((item) => item.id !== id);
@@ -212,6 +241,8 @@ function removeItem(id) {
 }
 
 window.removeItem = removeItem;
+window.increaseQuantity = increaseQuantity;
+window.decreaseQuantity = decreaseQuantity;
 
 
 // Toggle Shopping Cart

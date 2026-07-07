@@ -252,6 +252,27 @@ body {
   overflow-y: auto;
 }
 
+/* Cart Item details */
+.cart__items strong {
+    display: block;
+    margin-bottom: 5px;
+}
+/* Buttons inside the cart */
+.cart-item button {
+    background: #A8763E;
+    color: #F7F5F0;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* Change button color when hovered */
+.cart-item button:hover {
+    background: #8f6634;
+}
+
 /* Cart footer */
 .cart__footer {
   border-top: 1px solid #ccc;
@@ -286,5 +307,5 @@ body {
 /* Responsive design */
 /* Adjust the layout for tablets and mobile phones */
 @media (max-width: 768px){
-    
+
 }
