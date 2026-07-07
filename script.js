@@ -1,3 +1,4 @@
+//currency in KSH
 //Product Data
 //Stores all perfume information
 const perfumes = [
@@ -5,59 +6,68 @@ const perfumes = [
     id: 1,
     name: "Rose Elegance",
     category: "Floral",
-    price: 45,
+    price: 5850,
     image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500",
   },
   {
     id: 2,
     name: "Midnight Oud",
     category: "Woody",
-    price: 70,
+    price: 9100,
     image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500",
   },
   {
     id: 3,
     name: "Citrus Bloom",
     category: "Citrus",
-    price: 40,
-    image: "https://images.unsplash.com/photo-1615634262417-d9e7d66d4d5c?w=500",
+    price: 5200,
+    image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=500",
   },
   {
     id: 4,
     name: "Golden Amber",
     category: "Oriental",
-    price: 85,
-    image: "https://images.unsplash.com/photo-1595425964072-6a2f4c6d0d9e?w=500",
+    price: 11050,
+    image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500",
   },
   {
     id: 5,
     name: "Lavender Dream",
     category: "Floral",
-    price: 55,
+    price: 7150,
     image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=500",
   },
   {
     id: 6,
     name: "Forest Musk",
     category: "Woody",
-    price: 68,
-    image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=500",
+    price: 8840,
+    image: "https://images.unsplash.com/photo-1511497584788-876760111969?w=500",
   },
   {
     id: 7,
     name: "Lemon Splash",
     category: "Citrus",
-    price: 48,
+    price: 6240,
     image: "https://images.unsplash.com/photo-1601049676869-702ea24cfd58?w=500",
   },
   {
     id: 8,
     name: "Royal Spice",
     category: "Oriental",
-    price: 95,
+    price: 12350,
     image: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?w=500",
   },
 ];
+
+// A safe local fallback used only if an image ever fails to load
+const FALLBACK_IMAGE = "https://placehold.co/500x500?text=Aura+Essence";
+
+// Helper: formats a number as "KSh 5,850"
+function formatKES(amount) {
+  return "KSh " + amount.toLocaleString("en-KE");
+}
+
 
 // DOM Elements
 //Selects elements from the HTML page
@@ -96,7 +106,7 @@ function displayProducts(products) {
             <div class="product-info">
                 <h3>${product.name}</h3>
                 <p>${product.category}</p>
-                <div class="price">$${product.price}</div>
+                <div class="price">${formatKES(product.price)}</div>
                 <button class="add-btn" data-id="${product.id}">
                     Add to Cart
                 </button>
@@ -110,7 +120,6 @@ function displayProducts(products) {
     button.addEventListener("click", addToCart);
   });
 }
-
 
 // Search + Filter
 //Filters products based on search tecxt and catergory
@@ -142,7 +151,6 @@ filterButtons.forEach((button) => {
     filterProducts();
   });
 });
-
 
 // Shopping Cart functions
 // Adds, updates and removes cart items
@@ -191,7 +199,7 @@ function updateCart() {
             </div>
 
             <div>
-                <strong>$${item.price * item.quantity}</strong>
+                <strong>${formatKES(item.price * item.quantity)}</strong>
                 <br>
                 <button onclick="removeItem(${item.id})">
                     Remove
@@ -203,7 +211,7 @@ function updateCart() {
   });
 
   cartCount.textContent = count;
-  cartTotal.textContent = total.toFixed(2);
+  cartTotal.textContent = formatKES(total);
 }
 
 // Increase the quantity of a product in the cart
@@ -243,7 +251,6 @@ function removeItem(id) {
 window.removeItem = removeItem;
 window.increaseQuantity = increaseQuantity;
 window.decreaseQuantity = decreaseQuantity;
-
 
 // Toggle Shopping Cart
 //Opens and closes the cart
@@ -299,8 +306,9 @@ checkoutForm.addEventListener("submit", (e) => {
   overlay.classList.remove("open");
 });
 
-
 // Initialize
 //Displays products and loads the shopping cart
 displayProducts(perfumes);
 updateCart();
+
+
