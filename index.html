@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Website Title displayed on the browser tab -->
     <title>Aura Essence Store </title>
+
+    <!-- Link to the external css stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Nav bar will go here -->
+  <!-- Navigation Bar Section-->
   <header class="nav">
-  <div class="nav__inner">
-    <a href="#" class="nav__logo">Aura Essence </a>
 
+  <div class="nav__inner">
+
+    <!-- Store brand name -->
+    <a href="#" class="nav__logo">Aura Essence </a>
+    
+    <!-- Navigation Links -->
     <nav class="nav__links">
       <a href="#shop">Shop</a>
       <a href="#top">Top Notes</a>
@@ -20,19 +27,28 @@
       <a href="#base">Base Notes</a>
     </nav>
 
+    <!-- Shopping cart button showing number of items -->
     <button id="cartToggleBtn" class="nav__cart-btn">
-      Cart <span id="cartCount">0</span>
+    Cart <span id="cartCount">0</span>
     </button>
-  </div>
-</header>
-  <!-- Product list will go here -->
 
+  </div>
+
+</header>
+
+   <!-- Main Shop Section -->
   <main id="shop">
+
+    <!-- Main Heading -->
   <h1>Discover Your Signature Scent</h1>
 
+  <!-- Search bar and category filter button -->
   <div class="shop__controls">
-    <input type="text" id="searchInput" placeholder="Search perfumes...">
 
+    <!-- Search Input -->
+    <input type="text" id="searchInput" placeholder="Search perfumes...">
+    
+    <!-- Category Filter buttons -->
     <div class="shop__filters">
       <button class="filter-btn active" data-category="all">All</button>
       <button class="filter-btn" data-category="Floral">Floral</button>
@@ -47,31 +63,46 @@
   </div>
 </main>
 
+<!-- Background overlay shown when the cart is open -->
 <div class="overlay" id="overlay"></div>
 
+<!-- Shopping cart sidebar -->
 <aside class="cart" id="cartPanel">
+
+    <!-- Cart Header -->
   <div class="cart__header">
     <h2>Your Cart</h2>
+
+    <!-- Button to close the cart -->
     <button id="cartCloseBtn" class="cart__close">✕</button>
   </div>
 
+  <!-- List of items added to the cart -->
   <ul class="cart__items" id="cartItems">
     <!-- Cart items will be inserted here by JavaScript -->
   </ul>
 
+  <!-- Message displayed when your cart is empty -->
   <p id="cartEmptyMsg">Your cart is empty.</p>
 
+  <!-- Cart subtotal and checkout button -->
   <div class="cart__footer">
+
     <div class="cart__subtotal">
       <span>Subtotal</span>
       <strong id="cartSubtotal">$0.00</strong>
     </div>
-    <button class="checkout-btn" id="checkoutBtn">Checkout</button>
-  </div>
-</aside>
-  <!-- Cart section will go here -->
 
+    <!-- Checkout button -->
+    <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+
+  </div>
+
+</aside>
+ 
+<!-- Link to the external js file -->
   <script src="script.js"></script>
+  
 </body>
 
 </html>
