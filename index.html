@@ -93,8 +93,19 @@
       <strong id="cartSubtotal">$0.00</strong>
     </div>
 
-    <!-- Checkout button -->
-    <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+    <!-- Checkout Form -->
+     <form id="checkoutForm">
+        <!-- Customer Name -->
+        <input type="text" id="customerName" placeholder="Full Name" required>
+
+        <!-- Customer Email -->
+        <input type="email" id="customerEmail" placeholder="Email Address" required>
+
+        <!-- Checkout button -->
+       <button type="submit" class="checkout-btn" id="checkoutBtn">Checkout</button>
+
+     </form>
+
 
   </div>
 
@@ -102,7 +113,7 @@
  
 <!-- Link to the external js file -->
   <script src="script.js"></script>
-  
+
 </body>
 
 </html>

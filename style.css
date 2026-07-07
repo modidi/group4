@@ -304,6 +304,20 @@ body {
     background: #8f6634;
 }
 
+#checkout Form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#checkoutForm input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
 /* Responsive design */
 /* Adjust the layout for tablets and mobile phones */
 @media (max-width: 768px){

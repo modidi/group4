@@ -264,21 +264,37 @@ overlay.addEventListener("click", () => {
 
 // Checkout
 //Clears the cart after purchase
-const checkoutBtn = document.getElementById("checkoutBtn");
+const checkoutForm = document.getElementById("checkoutForm");
 
-checkoutBtn.addEventListener("click", () => {
+checkoutForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("customerName").value.trim();
+  const email = document.getElementById("customerEmail").value.trim();
+
+  // Check if the cart is empty
   if (cartData.length === 0) {
     alert("Your cart is empty.");
-
     return;
   }
 
+  //   Validate the email field
+  if (email === "") {
+    alert("Please enter your email address.");
+    return;
+  }
+
+//   Display a success mesage
   alert("Thank you for shopping with Aura Essence!");
 
+//   Clear the cart
   cartData = [];
-
   updateCart();
 
+  // Reset the checkout form
+  checkoutForm.reset()
+
+  // Close the cart
   cart.classList.remove("open");
   overlay.classList.remove("open");
 });
