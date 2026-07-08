@@ -57,7 +57,7 @@ const perfumes = [
     category: "Oriental",
     price: 12350,
     image: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?w=500",
-  },
+  }
 ];
 
 // A safe local fallback used only if an image ever fails to load
@@ -102,7 +102,7 @@ function displayProducts(products) {
     card.className = "product-card";
 
     card.innerHTML = `
-            <img src="${product.image}" alt="{product.name || FALLBACK_IMAGE}" onerror="this.src='${FALLBACK_IMAGE}'" /> 
+            <img src="${product.image}" alt="${product.name}">
             <div class="product-info">
                 <h3>${product.name}</h3>
                 <p>${product.category}</p>
