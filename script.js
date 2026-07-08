@@ -102,7 +102,7 @@ function displayProducts(products) {
     card.className = "product-card";
 
     card.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.image}" alt="{product.name || FALLBACK_IMAGE}" onerror="this.src='${FALLBACK_IMAGE}'" /> 
             <div class="product-info">
                 <h3>${product.name}</h3>
                 <p>${product.category}</p>
